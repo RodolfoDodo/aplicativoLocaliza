@@ -5,6 +5,9 @@ Feature: Abastecer um determinado veiculo de uma agencia
  	Para identificar o veiculo que esta disponivel para abastecimento ele deve esta no status 35s
 
   
+
+  
+  
   Scenario: Abastecer veiculo com Gasolina
     Given que acesso o aplicativo
   

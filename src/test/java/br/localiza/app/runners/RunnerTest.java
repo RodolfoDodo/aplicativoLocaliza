@@ -13,7 +13,7 @@ import io.cucumber.junit.CucumberOptions.SnippetType;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-				features = "src/test/resources/features/Login.feature",
+				features = "src/test/resources/features/AbastecerVeiculo.feature",
 				glue = "br.localiza.app.steps",
 				plugin = "pretty",
 				monochrome = true,

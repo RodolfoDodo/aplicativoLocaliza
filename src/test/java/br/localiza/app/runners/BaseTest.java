@@ -3,12 +3,19 @@ package br.localiza.app.runners;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.junit.Rule;
 import org.junit.rules.TestName;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.remote.DesiredCapabilities;
+
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidDriver;
 
 
 
@@ -16,9 +23,7 @@ public class BaseTest {
 
 	@Rule
 	public TestName testName = new TestName();
-
-
-
+	
 	
 	public void configracaoApp() {
 		DriverFactory.getDriver().findElementById("com.localiza.menuapp:id/botao_configuracoes").click();
@@ -43,9 +48,6 @@ public class BaseTest {
 
 		DriverFactory.getDriver().findElementById("com.localiza.menuapp:id/botaoSalvar").click();
 	}
-
-
-
 
 	public void gerarScreenShot() {
 
