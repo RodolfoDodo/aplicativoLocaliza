@@ -47,6 +47,7 @@ public class DriverFactory {
 		}
 		
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.quit();
 
 	}
 	private static void createDriver() {
