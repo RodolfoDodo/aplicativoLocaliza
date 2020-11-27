@@ -10,14 +10,13 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-
-- task: AppCenterTest@1
+- task: Maven@3
   inputs:
-    artifactsDirectory: '$(Build.ArtifactStagingDirectory)/AppCenterTest'
-    frameworkOption: 'appium'
-    credentialsOption: 'serviceEndpoint'
-    devices: 'Nexus 6 API 29'
-    localeOption: 'en_US'
-- task: Bash@3
-  inputs:
-    filePath: 'mvn test'
+    mavenPomFile: 'pom.xml'
+    mavenOptions: '-Xmx3072m'
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '1.8'
+    jdkArchitectureOption: 'x64'
+    publishJUnitResults: true
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    goals: 'package'
