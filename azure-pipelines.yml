@@ -20,14 +20,15 @@ steps:
     targetType: 'inline'
     script: 'sudo apt install nodejs'
 
-- task: CmdLine@2
+- task: Bash@3
   inputs:
-    script: 'npm install appium'
+    targetType: 'inline'
+    script: 'npm install -g appium'
 
-- task: Npm@1
+- task: Bash@3
   inputs:
-    command: 'install'
-    workingDir: 'appium'
+    targetType: 'inline'
+    script: 'appium'
 
 - task: Bash@3
   inputs:
