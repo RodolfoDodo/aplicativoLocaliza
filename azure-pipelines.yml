@@ -14,10 +14,10 @@ steps:
 - task: NodeTool@0
   inputs:
     versionSpec: '6.x'
-- task: Npm@1
+
+- task: Bash@3
   inputs:
-    command: 'install'
-    workingDir: 'npm install -g appium'
+    filePath: 'npm install -g appium'
 
 - task: Npm@1
   inputs:
