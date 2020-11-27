@@ -15,6 +15,10 @@ steps:
   inputs:
     versionSpec: '6.x'
 
+- task: Bash@3
+  inputs:
+    filePath: 'sudo apt install nodejs'
+
 - task: CmdLine@2
   inputs:
     script: 'npm install appium'
