@@ -18,7 +18,7 @@ steps:
 - task: Bash@3
   inputs:
     targetType: 'inline'
-    script: 'sudo apt install nodejs'
+    script: 'npm install npm'
 
 - task: Bash@3
   inputs:
