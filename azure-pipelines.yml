@@ -17,4 +17,4 @@ steps:
 - task: Bash@3
   inputs:
     targetType: 'inline'
-    script: 'npm i -g appium-doctor'
+    script: 'npm i -g appium'
