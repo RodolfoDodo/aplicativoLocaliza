@@ -14,9 +14,8 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      echo "y" | $ANDROID_HOME/tools/bin/sdkmanager --install 'system-images;android-28;google_apis;x86'
-              displayName: 'Download and install emulator image'
-              condition: ne(variables.AVD_IMAGES_RESTORED, 'true')
+      echo "y" | $ANDROID_HOME/tools/bin/sdkmanager --install 'system-images;android-28;google_apis;x86' 
+          echo "AVD system-image successfully downloaded and installed." 
 - task: Bash@3
   inputs:
     targetType: 'inline'
