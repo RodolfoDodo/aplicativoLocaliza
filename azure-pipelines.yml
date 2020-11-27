@@ -15,9 +15,9 @@ steps:
   inputs:
     versionSpec: '6.x'
 
-- task: Bash@3
+- task: CmdLine@2
   inputs:
-    filePath: 'npm install -g appium'
+    script: 'npm install -g appium'
 
 - task: Npm@1
   inputs:
