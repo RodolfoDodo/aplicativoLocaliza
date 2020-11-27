@@ -18,3 +18,7 @@ steps:
   inputs:
     targetType: 'inline'
     script: 'npm i -g appium'
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: 'appium'
