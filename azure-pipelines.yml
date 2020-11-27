@@ -10,29 +10,14 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- task: Bash@3
-  inputs:
-    targetType: 'inline'
-    script: 'echo "y" | $ANDROID_HOME/tools/bin/sdkmanager --install ''''system-images;android-29;google_apis;x86'''' echo "AVD system-image successfully downloaded and installed.'
-- task: NodeTool@0
-  inputs:
-    versionSpec: '6.x'
 
-- task: Bash@3
+- task: AppCenterTest@1
   inputs:
-    targetType: 'inline'
-    script: 'npm i npm'
-
-- task: Bash@3
-  inputs:
-    targetType: 'inline'
-    script: 'npm install -g appium'
-
-- task: Bash@3
-  inputs:
-    targetType: 'inline'
-    script: 'appium'
-
+    artifactsDirectory: '$(Build.ArtifactStagingDirectory)/AppCenterTest'
+    frameworkOption: 'appium'
+    credentialsOption: 'serviceEndpoint'
+    devices: 'Nexus 6 API 29'
+    localeOption: 'en_US'
 - task: Bash@3
   inputs:
     filePath: 'mvn test'
