@@ -17,7 +17,8 @@ steps:
 
 - task: Bash@3
   inputs:
-    filePath: 'sudo apt install nodejs'
+    targetType: 'inline'
+    script: 'sudo apt install nodejs'
 
 - task: CmdLine@2
   inputs:
