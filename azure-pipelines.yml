@@ -38,3 +38,8 @@ steps:
   inputs:
     targetType: 'inline'
     script: 'appium root-dir "./" 2>&1 &'
+
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: 'mvn test'
