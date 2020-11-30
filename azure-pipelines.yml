@@ -24,7 +24,7 @@ steps:
           echo "Emulator created successfully $(ANDROID_HOME/emulator/emulator -list-avds), launching it" 
           nohup $ANDROID_HOME/emulator/emulator -avd android_emulator -skin 1080x1920 -no-snapshot -no-audio -no-boot-anim -accel auto -gpu auto -qemu -lcd-density 420 > /dev/null 2>&1 & 
           $ANDROID_HOME/platform-tools/adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed | tr -d '\r') ]]; do sleep 1; done' 
-          adb root adb shell ''setprop persist.sys.language pt-BR;setprop persist.sys.country BR;stop;sleep 5;start'' $ANDROID_HOME/platform-tools/adb devices $ANDROID_HOME/tools/bin/avdmanager list device'
+          adb root adb shell 'setprop persist.sys.language pt-BR;setprop persist.sys.country BR; stop; sleep 5; start $ANDROID_HOME/platform-tools/adb devices $ANDROID_HOME/tools/bin/avdmanager list device'
 
 - task: Bash@3
   inputs:
