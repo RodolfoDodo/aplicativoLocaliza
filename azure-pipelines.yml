@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  vmImage: 'macos-11.0'
+  vmImage: 'macos-latest'
 
 steps:
 - task: Bash@3
