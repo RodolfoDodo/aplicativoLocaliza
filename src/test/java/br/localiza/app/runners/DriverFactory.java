@@ -40,7 +40,7 @@ public class DriverFactory {
 		desiredCapabilities.setCapability("ensureWebviewsHavePages", true);
 		
 		try {
-			driver = new AndroidDriver<MobileElement>(new URL("http://localhost:4723/wd/hub"), desiredCapabilities);
+			driver = new AndroidDriver<MobileElement>(new URL("http://localhost:4724/wd/hub"), desiredCapabilities);
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -70,7 +70,7 @@ public class DriverFactory {
 		desiredCapabilities.setCapability("ensureWebviewsHavePages", true);
 		
 		try {
-			driver = new AndroidDriver<MobileElement>(new URL("http://localhost:4723/wd/hub"), desiredCapabilities);
+			driver = new AndroidDriver<MobileElement>(new URL("http://localhost:4724/wd/hub"), desiredCapabilities);
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
