@@ -50,3 +50,8 @@ steps:
 - task: CmdLine@2
   inputs:
     script: 'brew install maven'
+
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: 'mvn test'
