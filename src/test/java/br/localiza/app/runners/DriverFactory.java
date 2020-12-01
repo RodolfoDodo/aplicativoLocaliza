@@ -24,7 +24,7 @@ public class DriverFactory {
 	
 	private static void instalarCompletae() {
 
-		String apkpath="APK\\Combustivel-v2.0.2(202)-debug.apk";
+		String apkpath="APK/Combustivel-v2.0.2(202)-debug.apk";
 		File app=new File(apkpath);
 		
 		DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
@@ -52,7 +52,7 @@ public class DriverFactory {
 	}
 	private static void createDriver() {
 		
-		String apkpath="APK\\Menu-hmg-v2.1.6(216)-debug.apk";
+		String apkpath="APK/Menu-hmg-v2.1.6(216)-debug.apk";
 		File app=new File(apkpath);
 		
 		DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
