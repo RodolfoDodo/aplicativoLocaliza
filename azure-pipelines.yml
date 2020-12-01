@@ -49,4 +49,4 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'mvn test'
+    script: 'brew install maven'
