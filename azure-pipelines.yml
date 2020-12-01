@@ -1,3 +1,4 @@
+
 trigger:
   - master
 
@@ -101,4 +102,3 @@ jobs:
       effectivePomSkip: false
       sonarQubeRunAnalysis: false
     condition: succeeded()
-
