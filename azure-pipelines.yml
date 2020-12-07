@@ -33,7 +33,7 @@ jobs:
       ANDROID:
         PLATFORM_NAME: android
         ANDROID_EMU_NAME: test
-        ANDROID_SDK_ID: system-images;android-29;google_apis_playstore;x86;-d 16
+        ANDROID_SDK_ID: system-images;android-29;google_apis_playstore;x86
 
   steps:
   - task: CmdLine@2
@@ -70,15 +70,14 @@ jobs:
     displayName: 'Configure and start Android emulator'
     inputs:
       script: |
-        echo "ANDROID_HOME: ${ANDROID_HOME}"
-        echo "y" | $ANDROID_HOME/tools/bin/sdkmanager "$(ANDROID_SDK_ID)"
-        echo "no" | $ANDROID_HOME/tools/bin/avdmanager create avd -n "$(ANDROID_EMU_NAME)" -k "$(ANDROID_SDK_ID)" -f
-        $ANDROID_HOME/emulator/emulator -list-avds
+        echo "y" | $ANDROID_HOME/tools/bin/sdkmanager --install 'system-images;android-29;google_apis;x86' 
+          echo "AVD system-image successfully downloaded and installed." 
 
-        nohup $ANDROID_HOME/emulator/emulator -avd "$(ANDROID_EMU_NAME)" -no-snapshot > /dev/null 2>&1 &
-        $ANDROID_HOME/platform-tools/adb wait-for-device
-        while [[ $? -ne 0 ]]; do sleep 1; $ANDROID_HOME/platform-tools/adb shell pm list packages; done;
-        $ANDROID_HOME/platform-tools/adb devices
+        echo "no" | $ANDROID_HOME/tools/bin/avdmanager create avd -n android_emulator -k 'system-images;android-29;google_apis;x86' -d 16 --force 
+          echo "Emulator created successfully $(ANDROID_HOME/emulator/emulator -list-avds), launching it" 
+          nohup $ANDROID_HOME/emulator/emulator -avd android_emulator -skin 1080x1920 -no-snapshot -no-audio -no-boot-anim -accel auto -gpu auto -qemu -lcd-density 420 > /dev/null 2>&1 & 
+          $ANDROID_HOME/platform-tools/adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed | tr -d '\r') ]]; do sleep 1; done' 
+          adb root adb shell 'setprop persist.sys.language pt-BR;setprop persist.sys.country BR; stop; sleep 5; start $ANDROID_HOME/platform-tools/adb devices $ANDROID_HOME/tools/bin/avdmanager list device'
     condition: and(succeeded(), eq(variables['PLATFORM_NAME'], 'android'))
 
   - task: CmdLine@2
