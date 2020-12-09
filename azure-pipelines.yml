@@ -5,10 +5,6 @@ trigger:
 pool:
   vmImage: 'macOS-latest'
 
-jobs:
-- job: sonar
-  displayName: Analyse code with SonarQube
-
   steps:
 
   - task: Maven@3
@@ -23,19 +19,6 @@ jobs:
       testResultsFiles: '**/surefire-reports/TEST-*.xml'
       goals: 'clean'
 
-
-
-- job: tests
-  displayName: Run tests
-  strategy:
-    maxParallel: 2
-    matrix:
-      ANDROID:
-        PLATFORM_NAME: android
-        ANDROID_EMU_NAME: test
-        ANDROID_SDK_ID: system-images;android-29;google_apis_playstore;x86
-
-  steps:
   - task: CmdLine@2
     displayName: 'Configure Appium'
     inputs:
