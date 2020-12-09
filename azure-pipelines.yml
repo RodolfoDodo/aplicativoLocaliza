@@ -94,7 +94,7 @@ jobs:
       mavenPomFile: 'pom.xml'
       goals: 'test -DisRemote=true -DplatformName=$(PLATFORM_NAME)'
       publishJUnitResults: true
-      testResultsFiles: '**/surefire-reports/TEST-*.xml'
+      testResultsFiles: '**/screenshot'
       javaHomeOption: 'JDKVersion'
       mavenVersionOption: 'Default'
       mavenAuthenticateFeed: false
