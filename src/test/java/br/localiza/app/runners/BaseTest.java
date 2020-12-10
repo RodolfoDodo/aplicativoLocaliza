@@ -68,7 +68,7 @@ public class BaseTest {
 
 		try {
 			File imagem = ((TakesScreenshot) DriverFactory.getDriver()).getScreenshotAs(OutputType.FILE);
-			FileUtils.copyFile(imagem, new File("target/screenshot/" + testName.getMethodName() + ".png"));
+			FileUtils.copyFile(imagem, new File("surefire-reports" + testName.getMethodName() + ".png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
